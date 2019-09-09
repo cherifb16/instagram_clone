@@ -1,0 +1,35 @@
+
+<div class="first">
+&nbsp &nbsp &nbsp &nbsp<strong><h1>welcome on instagram<h1></strong> </br>
+
+&nbsp &nbsp &nbsp &nbsp <%=image_tag('Capture1.png')%>
+</div>
+
+<div class="card" style="width: 18rem;">
+<div class="card-body">
+<h1>Instagram</p>
+<%= link_to "Sign up", new_user_registration_path, class:'btn btn-primary btn-lg btn-block' %>
+<hr><pre>OR</pre><hr>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'Email',class:'name' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password",placeholder: 'password',class:'name' %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in",class:'btn btn-primary btn-lg btn-block' %>
+  </div>
+<% end %>
+</div>
+</div>

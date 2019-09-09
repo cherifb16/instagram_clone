@@ -1,0 +1,41 @@
+<div class="main">
+<div class="left">
+<p id="notice"><%= notice %></p>
+</div>
+
+<div class="content">
+<h1>Posts</h1>
+
+  <% @posts.each do |post| %>
+    <div class="content-content">
+       
+        <%= post.content %>
+        <%= image_tag post.image.url,style:"width:100px%" %><br><br>
+        <%= post.user.email %>
+        <%= link_to 'Show', post %>
+        <%if post.user == current_user %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+     
+      </div>
+  <% end %>
+  
+<br>
+<%= link_to 'New Post', new_post_path %>
+</div>
+
+<div class="profile">
+<% if user_signed_in? %>
+    
+    <% if current_user.profile == nil %>
+    <p><%= image_tag 'pro4.png', class:"rounded-circle" %></p>
+    <% else %>
+    <% if current_user.profile.image? %>        
+      <p><%= image_tag current_user.profile.image.url, class:"rounded-circle" %>    
+     <% end %> 
+    <% end %>
+  <% end %>
+</div>
+</div>
+

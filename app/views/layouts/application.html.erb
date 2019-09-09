@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstagramClone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    </head>
+
+  <body style="background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);">
+  
+    
+  <% if signed_in? %>
+  <nav class="navbar navbar-light">
+  <a class="navbar-brand logo"><%= image_tag 'instalogo.png'%></a>
+
+  <form class="form-inline">
+    <input class="search" type="search" placeholder="Search" aria-label="Search">
+  </form>
+  
+  <%= link_to favorites_path(current_user) do %>
+    <%= image_tag "cherif7.png" %>
+ <% end %>
+
+  <%= link_to profiles_path(current_user) do %>
+    <%= image_tag "cherif3.png" %>
+ <% end %> 
+  <a class="navbar-brand" href="#" >
+  <p><%= link_to "Sign out", destroy_user_session_path,method: :delete, class: 'btn btn-success' %></p></a>
+  <% end %> 
+  </a>
+  </nav>    
+    <p class="notice"><%= notice %></p>
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     
+  </body>
+</html>

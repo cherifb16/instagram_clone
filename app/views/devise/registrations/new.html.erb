@@ -1,0 +1,40 @@
+<div class="first">
+&nbsp &nbsp &nbsp &nbsp <%=image_tag('Capture1.png')%>
+</div>
+
+<div class="card" style="width: 18rem;">
+<div class="card-body">
+
+  <h1>Instagram</h1>
+  <%= link_to "Sign In", new_user_session_path, class:'btn btn-primary btn-lg btn-block' %>
+  <hr><pre>OR</pre><hr>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'Email',class:'name' %>
+  </div>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password",placeholder: 'password',class:'name' %>
+  </div>
+
+  <div class="field">
+    
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: 'password_confirmation',class:'name' %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Sign up",class:'btn btn-primary btn-lg btn-block' %>
+  </div>
+<% end %>
+      
+</div>
+</div>
+
+
+
